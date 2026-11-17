@@ -1,0 +1,33 @@
+defaults:
+  - model: ???   # required: sdxl, sdxl_turbo, flux_dev_fp8, flux_schnell
+
+# Generation (generate_faces.py)
+output_dir: output/faces/
+comfyui_url: http://127.0.0.1:8188
+prompt_template: "a picture of the person {}"
+hf_dataset: malper/namesakes
+seed: 42
+subset_size: null  # if set, randomly sample this many names; default runs all
+resolution: 256
+batch_size: 4      # images per name (k = batch_size * n_batches; paper: k = 4)
+n_batches: 1
+teacache: false
+teacache_thresh: 0.4
+
+# Alignment + embedding (postprocess.py)
+landmark_fn: weights/shape_predictor_68_face_landmarks.dat
+arcface_device: cuda
+aligned_dir: output/aligned/
+embeds_dir: output/cached_embeds/
+
+# Analysis (analyze.py)
+strict_black: true  # exclude names with any alignment-failed generated image
+kfold_k: 5          # CV folds
+perm_n: 1000        # permutations for the CV R² permutation test (0 = skip)
+
+hydra:
+  job:
+    chdir: false
+  output_subdir: null
+  run:
+    dir: output/logs/${now:%Y-%m-%d_%H-%M-%S}

@@ -1,0 +1,9 @@
+type: flux
+diffusion_model_path: flux1-dev-fp8.safetensors
+clip_l_path: clip_l.safetensors
+t5xxl_path: t5xxl_fp16.safetensors
+vae_path: ae.safetensors
+width: 1024
+height: 1024
+num_inference_steps: 20
+guidance_scale: 3.5

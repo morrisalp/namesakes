@@ -1,0 +1,6 @@
+[submodule "encoder4editing"]
+	path = encoder4editing
+	url = https://github.com/omertov/encoder4editing.git
+[submodule "ComfyUI"]
+	path = ComfyUI
+	url = https://github.com/comfyanonymous/ComfyUI.git

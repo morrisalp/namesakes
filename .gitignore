@@ -1,0 +1,8 @@
+output/
+weights/
+__pycache__/
+.venv/
+data_prep/dumps/
+data_prep/faces/
+data_prep/plots/
+data/*.log.json
